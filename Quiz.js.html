@@ -77,7 +77,8 @@
       <button name="false" value="false">false</button>
     </div>
 
-    <divlid="explanation"></div>
+    <divlid="explanation">
+      </div>
   </main>
 
   <script type="text/javascript">
@@ -86,29 +87,66 @@
     // optionButtons should be all the elements within the "options" div
     // explanation should be the "explanation" div
     const statement = document.getElementById("statement");
-    const optionButtons = document.getElementById("options").children;
+    const optionButtons = document.getElementById("options").children
     const explanation = document.getElementById("explanation")
 
     // TODO 2: Declare & assign a variable called fact
     // Its value should be an object with a statement, true/false answer, and explanation
     const fact = {
-    statement : "Arrays are just like objects",
-    answer: true,
-    explanation: "Arrays are a kind of object with special properties",
-  }
+      statement: "Arrays are just like objects",
+      answer: true,
+      explanation: "Arrays are a kind of object with special properties",
+    }
 
-      // TODO 3: Set the text of the statement element to the fact's statement
-      statement.textContent = fact.statement;
-      
+    // TODO 3: Set the text of the statement element to the fact's statement
+    statement.textContent = fact.statement;
 
-      // TODO 4: Declare disable & enable functions to set or remove the "disabled" attribute from a given button element
-      // disable(button) should set the button element's attribute "disabled" to the value ""
-      // enable(button) should remove the attribute "disabled" from the button element
 
-      // TODO 5: Declare an isCorrect function that compares a guess to the right answer
-      // isCorrect(guess) should return true if the guess matches the fact's answer
+    // TODO 4: Declare disable & enable functions to set or remove the "disabled" attribute from a given button element
+    // disable(button) should set the button element's attribute "disabled" to the value ""
+    // enable(button) should remove the attribute "disabled" from the button element
+    const disable = (button) => {
+      button.setAttribute("disabled", "");
+    }
 
-      // TODO 6A: Use a for loop to add a click event listener to each of the optionButtons
+    const enable = (button) => button.removeAttribute("disabled");
+
+
+    // TODO 5: Declare an isCorrect function that compares a guess to the right answer
+    // isCorrect(guess) should return true if the guess matches the fact's answer
+
+    const isCorrect = (guess) => {
+      return guess === fact.answer;
+    }
+
+    // TODO 6A: Use a for loop to add a click event listener to each of the optionButtons
+    for (button in optionButtons) {
+      button.addEventlistener("click", (event) => {
+        // TODO 6C: Within the event handler function, get the clicked button element
+        const clickedButton = event.target;
+
+        // TODO 6D: Call the disable function on the clicked button
+        disable(clickedButton);
+
+        // TODO 6E: Call the enable function on all other buttons
+        for (let btn of optionButtons) {
+          if (btn !== clickedButton) {
+            enable(btn);
+          }
+        }
+
+        // TODO 6F: Display the explanation in the explanation element
+        explanation.textContent = fact.explanation;
+
+        // TODO 6G: Check if the guess is correct and add the appropriate class to the clicked button
+        if (isCorrect(clickedButton.value)) {
+          clickedButton.classList.add("correct");
+        } else {
+          clickedButton.classList.add("incorrect");
+        }
+      });
+    }
+
       // TODO 6B: Within the event handler function, display the fact's explanation by setting the text of the explanation element
 
       // TODO 7: Within the event handler function,
