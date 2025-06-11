@@ -35,5 +35,5 @@ console.log(variable)
 
 let newarray = [100,2,1999,2,3,4];
 console.log(newarray)
-let sorted_array = newarray.sort();
+let sorted_array = newarray.sort((a,b)=> a-b);
 console.log(sorted_array)
