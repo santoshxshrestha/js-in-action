@@ -37,3 +37,9 @@ let newarray = [100,2,1999,2,3,4];
 console.log(newarray)
 let sorted_array = newarray.sort((a,b)=> a-b);
 console.log(sorted_array)
+console.log("-------------------------------------------------------------------")
+
+const arr = [1,2];
+const another = arr.concat([1,23]);
+console.log(arr)
+console.log(another)
