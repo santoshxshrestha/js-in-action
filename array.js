@@ -43,3 +43,51 @@ const arr = [1,2];
 const another = arr.concat([1,23]);
 console.log(arr)
 console.log(another)
+
+console.log("-------------------------------------------------------------------")
+//this is in case of number
+let a = 23;
+let b = a ;
+a = 432;
+b = 234;
+console.log(b)
+console.log(a)
+
+console.log("-------------------------------------------------------------------")
+//this is in case of array
+let c = [1,2,3];
+let d = c;
+c[0] = 5;
+d[1] = 4
+console.log(d)
+console.log(c)
+
+console.log("-------------------------------------------------------------------")
+const santosh  = {
+    name : "santsoh",
+    langauge: ["Nepali", "hindi", "English"],
+    programming_language: ["c", "cpp", "rust","js","html css tailwind","bash"],
+    age: 20,
+    pet: "Azure crane",
+    text_editor: [ "vim", "nvim", "nano", "notepad", "vscode" ],
+    hobbies: ["code", "game", "learn", "journal", "web", "linux"],
+    vehicle : null,
+    quote: function() {
+        console.log("Do you know my name , it is ",this.name)
+    },
+}
+console.log(santosh.programming_language.join("_"))
+santosh.quote();
+
+console.log("-------------------------------------------------------------------")
+
+const dog = {
+    name : "echo",
+    talk: function(){
+        console.log("woof woof")
+    }
+}
+dog.talk();
+console.log(typeof dog);
+console.log(typeof dog.talk)
+console.log(typeof dog.name)
