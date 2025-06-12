@@ -117,6 +117,7 @@
     const isCorrect = (guess) => {
       return guess === fact.answer;
     }
+    //clicked button 
 
       // TODO 6A: Use a for loop to add a click event listener to each of the optionButtons
       for (let button of optionButtons) {
@@ -127,11 +128,14 @@
             disable(button);
           }
 
+          const clickedButton = button;
+
 
           // TODO 6F: Display the explanation in the explanation element
           explanation.textContent = fact.explanation;
 
           // TODO 6G: Check if the guess is correct and add the appropriate class to the clicked button
+          if( isCorrect(clickedButton.value)
 
           // TODO 6B: Within the event handler function, display the fact's explanation by setting the text of the explanation element
 
