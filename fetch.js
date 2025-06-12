@@ -6,7 +6,7 @@ let response =async ()=> {
     content = data;
     for (let n of content.message){
         if ( n === 'walker' ){
-            console.log(content.message.indexOf('walker'))
+            console.log(`The index of walker is ${content.message.indexOf('walker')}`)
         }
     }
 }
