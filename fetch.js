@@ -1,2 +1,2 @@
-let content = fetch("https://dog.ceo/api/breed/hound/list")
-console.log(content);
+let response = await fetch("https://dog.ceo/api/breed/hound/list")
+console.log(response);
