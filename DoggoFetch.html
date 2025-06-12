@@ -99,8 +99,9 @@
 
                 while (choices.length < n) {
                     const choice = getRandomElement(array);
-                    if (choices.includes(choice)) continue;
-                    choices.push(choice);
+                    if (!choices.includes(choice)) {
+                        choices.push(choice);
+                    };
                 }
 
                 return shuffleArray(choices);
