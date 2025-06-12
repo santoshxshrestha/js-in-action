@@ -98,8 +98,11 @@
         // Make sure there are no duplicates in the array
         const choices = [];
         while (choices.length < n) {
+        const choice = getRandomElement(array);
+        choices.push(choice);
         }
-
+        choices.push(correctAnswer);
+        shuffleArray(choices);
     }
 
     
