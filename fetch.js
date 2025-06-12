@@ -1,2 +1,10 @@
-let response = await fetch("https://dog.ceo/api/breed/hound/list")
-console.log(response);
+let content;
+
+let response =async ()=> {
+    let res = await fetch("https://dog.ceo/api/breed/hound/list")
+    const data = await res.json();
+    content = data;
+    console.log(content);
+}
+response();
+
