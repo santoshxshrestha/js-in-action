@@ -77,8 +77,7 @@
       <button name="false" value="false">false</button>
     </div>
 
-    <divlid="explanation">
-      </div>
+    <div id="explanation"></div>
   </main>
 
   <script type="text/javascript">
@@ -119,44 +118,34 @@
       return guess === fact.answer;
     }
 
-    // TODO 6A: Use a for loop to add a click event listener to each of the optionButtons
-    for (button in optionButtons) {
-      button.addEventlistener("click", (event) => {
-        // TODO 6C: Within the event handler function, get the clicked button element
-        const clickedButton = event.target;
+      // TODO 6A: Use a for loop to add a click event listener to each of the optionButtons
+      for (let button of optionButtons) {
+        button.addEventListener("click", () => {
 
-        // TODO 6D: Call the disable function on the clicked button
-        disable(clickedButton);
-
-        // TODO 6E: Call the enable function on all other buttons
-        for (let btn of optionButtons) {
-          if (btn !== clickedButton) {
-            enable(btn);
+          // TODO 6D: Call the disable function after clicking a button
+          for (let button of optionButtons) {
+            disable(button);
           }
-        }
 
-        // TODO 6F: Display the explanation in the explanation element
-        explanation.textContent = fact.explanation;
 
-        // TODO 6G: Check if the guess is correct and add the appropriate class to the clicked button
-        if (isCorrect(clickedButton.value)) {
-          clickedButton.classList.add("correct");
-        } else {
-          clickedButton.classList.add("incorrect");
-        }
-      });
-    }
+          // TODO 6F: Display the explanation in the explanation element
+          explanation.textContent = fact.explanation;
 
-      // TODO 6B: Within the event handler function, display the fact's explanation by setting the text of the explanation element
+          // TODO 6G: Check if the guess is correct and add the appropriate class to the clicked button
 
-      // TODO 7: Within the event handler function,
-      // Use a for loop to disable all the option buttons
+          // TODO 6B: Within the event handler function, display the fact's explanation by setting the text of the explanation element
 
-      // TODO 8: Within the event handler function,
-      // Get the guessed value from the clicked button
-      // Use a conditional to compare the guess to the fact's answer
-      // and add the "correct"/"incorrect" class as appropriate
-  </script>
-</body>
+          // TODO 7: Within the event handler function,
+          // Use a for loop to disable all the option buttons
 
-</html>
+          // TODO 8: Within the event handler function,
+          // Get the guessed value from the clicked button
+          // Use a conditional to compare the guess to the fact's answer
+          // and add the "correct"/"incorrect" class as appropriate
+
+        })
+      }
+    </script>
+  </body>
+  
+  </html>
