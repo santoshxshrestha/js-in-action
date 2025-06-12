@@ -133,9 +133,9 @@
         // TODO 6G: Check if the guess is correct and add the appropriate class to the clicked button
         //          if( isCorrect(clickedButton.value)
         if (isCorrect(button.value)) {
-          console.log("you are correct ");
+          button.classList.add("correct");
         } else {
-          console.log("you are incorrect");
+          button.classList.add("incorrect");
         }
 
         // TODO 6B: Within the event handler function, display the fact's explanation by setting the text of the explanation element
