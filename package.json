@@ -2,7 +2,7 @@
   "name": "js-in-action",
   "version": "1.0.0",
   "description": "",
-  "main": "array.js",
+  "main": "github.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/santoshxshrestha/js-in-action#readme",
   "dependencies": {
-    "live-server": "^1.2.2"
+    "live-server": "^1.2.2",
+    "node-fetch": "^3.3.2"
   }
 }
