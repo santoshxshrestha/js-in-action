@@ -93,7 +93,7 @@
     // Its value should be an object with a statement, true/false answer, and explanation
     const fact = {
       statement: "Arrays are just like objects",
-      answer: true,
+      answer: "true",
       explanation: "Arrays are a kind of object with special properties",
     }
 
@@ -115,7 +115,7 @@
     // isCorrect(guess) should return true if the guess matches the fact's answer
 
     const isCorrect = (guess) => {
-      return guess === fact.answer.tostring();
+      return guess === fact.answer;
     }
     //clicked button 
 
@@ -136,7 +136,12 @@
           explanation.textContent = fact.explanation;
 
           // TODO 6G: Check if the guess is correct and add the appropriate class to the clicked button
-//          if( isCorrect(clickedButton.value)
+          //          if( isCorrect(clickedButton.value)
+          if (isCorrect(button.value)) {
+            console.log("you are correct ");
+          } else {
+            console.log("you are incorrect");
+          }
 
           // TODO 6B: Within the event handler function, display the fact's explanation by setting the text of the explanation element
 
