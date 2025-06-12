@@ -7,3 +7,9 @@ for (n of array){
     
     console.log(`content of the array`, n)
 }
+
+let string = 'santosh is here'
+let split = string.split(" ")
+for (n of split){
+    console.log(n)
+}
