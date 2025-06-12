@@ -89,20 +89,23 @@
 
 
 
-    // TODO 1
-    // Given an array of possible answers, a correct answer value, and a number of choices to get,
-    // return a list of that many choices, including the correct answer and others from the array
-    function getMultipleChoices(n, correctAnswer, array) {
-        // Use a while loop and the getRandomElement() function
-        // Make sure there are no duplicates in the array
-        const choices = [];
-        while (choices.length < n) {
-        const choice = getRandomElement(array);
-        choices.push(choice);
-        }
-        choices.push(correctAnswer);
-        return shuffleArray(choices);
-    }
+            // TODO 1
+            // Given an array of possible answers, a correct answer value, and a number of choices to get,
+            // return a list of that many choices, including the correct answer and others from the array
+            function getMultipleChoices(n, correctAnswer, array) {
+                // Use a while loop and the getRandomElement() function
+                // Make sure there are no duplicates in the array
+                const choices = [];
+                choices.push(correctAnswer);
+
+                while (choices.length < n) {
+                    const choice = getRandomElement(array);
+                    if (choices.includes(choice)) continue;
+                    choices.push(choice);
+                }
+
+                return shuffleArray(choices);
+            }
 
     
     // TODO 2
