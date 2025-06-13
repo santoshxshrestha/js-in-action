@@ -168,7 +168,6 @@
             button.addEventListener("click", buttonHandler)
             options.appendChild(button);
         }
-        
     }
 
 
@@ -200,10 +199,8 @@
     // TODO 5
     // Asynchronously call the loadQuizData() function,     
     // Then call renderQuiz() with the returned imageUrl, correctAnswer, and choices 
-    
-    
-
-
+    let [doggoImgUrl, correctBreed, breedChoices] =  await loadQuizData();
+    renderQuiz(doggoImgUrl, correctBreed, breedChoices);
   </script>
 
 </body></html>
