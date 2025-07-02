@@ -48,10 +48,15 @@
             const accuracy = document.getElementById("accuracy");
             const wordPerMin = document.getElementById("wordPerMin");
 
+            quoteNow = para[math.floor(math.radom() * para.length)];
+            paragraph.textContent = quoteNow;
+
             input.value = "";
             time.textContent = 0;
             accuracy.textContent = 0;
             wordPerMin.textContent = 0;
+
+
 
             startTime = new Date();
 
@@ -79,9 +84,12 @@
                 accuracy.textContent = isNaN(accuracy) ? 0 : Math.round(accuracy);
             };
 
-            quoteNow = para[math.floor(math.radom() * para.length)];
-            paragraph.textContent = quoteNow;
+
+            if (typed === quoteNow){
+            input.disable = true;
+            }
         }
+        window.onload = startTyping;
     </script>
 </body>
 
