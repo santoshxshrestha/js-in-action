@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wether api</title>
+</head>
+
+<body>
+    <div id="time"></div>
+    <script>
+        let api =
+            "https://api.open-meteo.com/v1/forecast?latitude=27.5&longitude=83.5&hourly=temperature_2m";
+
+        async function fetchMessage(url) {
+            const response = await fetch(url);
+            const {hourly} = await response.json();
+            return hourly;
+        }
+
+        async function datas(api) {
+            const data = await fetchMessage(api);
+            const time = data.time;
+            const temps = data.temperature_2m;
+
+            let index = 0;
+
+            setInterval(() => {
+                if (index >= time.length) {
+                    index = 0;
+                }
+                document.getElementById("time").innerText =
+                    `${time[index]} : ${temps[index]}°C`;
+                index++;
+            }, 1000);
+        }
+
+        datas(api);
+    </script>
+</body>
+
+</html>

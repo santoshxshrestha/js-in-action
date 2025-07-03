@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Change Style</title>
+</head>
+
+<body id="body">
+    <p id="text">Hello World!</p>
+    <button onclick="changeStyle()">Change Style</button>
+
+    <script>
+        function changeStyle() {
+            const body = document.getElementByClassName("body");
+
+            body.style.background = "black";
+        }
+    </script>
+</body>
+
+</html>
