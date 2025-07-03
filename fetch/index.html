@@ -30,8 +30,8 @@
                 if (index >= time.length) {
                     index = 0;
                 }
-                document.getElementById("time").innerText =
-                    `${time[index]} : ${temps[index]}°C`;
+                document.getElementById("time").innerText +=
+                    `${time[index]} : ${temps[index]}°C\n`;
                 index++;
             }, 1000);
         }
