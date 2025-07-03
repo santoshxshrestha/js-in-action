@@ -4,92 +4,120 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Typer - Word Counts</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-top: 10px;
+            font-size: 1rem;
+            padding: 10px;
+        }
+
+        .timing,
+        .accuracy,
+        .wordsperMin {
+            margin-top: 10px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 15px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
-        <h1>typer -word counts</h1>
+        <h1>Typer - Word Counts</h1>
         <p id="para"></p>
-        <textarea name="typing" id="typing" placeholder="start typing ">
-        </textarea>
+        <textarea id="typing" placeholder="Start typing..." disabled></textarea>
 
         <div class="timing">
-            <strong> Time: </strong>
-            <span id="time"></span>
+            <strong>Time:</strong> <span id="time">0</span> s
         </div>
 
         <div class="accuracy">
-            <strong>Accuracy: </strong>
-            <span id="accuracy">0 <span>%</span></span>
+            <strong>Accuracy:</strong> <span id="accuracy">0</span> %
         </div>
 
         <div class="wordsperMin">
-            <strong> word per min: </strong>
-            <span id="wordPerMin">0<span>WPM</span></span>
+            <strong>Words per minute:</strong> <span id="wordPerMin">0</span> WPM
         </div>
 
-        <button>Start typing....</button>
+        <button onclick="startTyping()">Start Typing...</button>
     </div>
+
     <script>
-        let para = [
-            "hello there this is some content to show out there for the game",
-            "this is the another  line here out there ",
-            "lol got another line and this is the last line of this para ",
+        const paraList = [
+            "Hello there, this is some content to show out there for the game.",
+            "This is another line here out there.",
+            "Lol, got another line and this is the last line of this paragraph.",
         ];
 
-        let quoteNow = " ";
-        let startTime;
+        let quoteNow = "";
+        let startTime = null;
 
         function startTyping() {
             const paragraph = document.getElementById("para");
             const input = document.getElementById("typing");
             const time = document.getElementById("time");
-            const accuracy = document.getElementById("accuracy");
+            const accuracyDisplay = document.getElementById("accuracy");
             const wordPerMin = document.getElementById("wordPerMin");
 
-            quoteNow = para[math.floor(math.radom() * para.length)];
+            quoteNow = paraList[Math.floor(Math.random() * paraList.length)];
             paragraph.textContent = quoteNow;
 
             input.value = "";
-            time.textContent = 0;
-            accuracy.textContent = 0;
-            wordPerMin.textContent = 0;
-
-
-
+            time.textContent = "0";
+            accuracyDisplay.textContent = "0";
+            wordPerMin.textContent = "0";
             startTime = new Date();
 
-            input.disable = false;
+            input.disabled = false;
             input.focus();
 
             input.oninput = function () {
-                const timeEsti = (new Date() - startTime) / 1000;
-                time.textContent = timeEsti.toFixed(1);
-
                 const typed = input.value;
-                const wordsTyped = tpyed.trim().split(/\s+/).length;
+                const timeElapsed = (new Date() - startTime) / 1000;
+                time.textContent = timeElapsed.toFixed(1);
 
-                const wrdPM = (wordsTyped / timeEsti) * 60;
-                wordPerMin.textContent = isNaN(wordPM) ? 0 : Math.round(wordPM);
+                const wordsTyped = typed.trim().split(/\s+/).filter(Boolean).length;
+                const wpm = (wordsTyped / timeElapsed) * 60;
+                wordPerMin.textContent = isNaN(wpm) ? 0 : Math.round(wpm);
 
                 let correct = 0;
-                for (let i = 0; i < typed.length; i++) {
-                    if (typed[i] === quoteNow[i]) {
-                        correct++;
-                    }
+                for (let i = 0; i < typed.length && i < quoteNow.length; i++) {
+                    if (typed[i] === quoteNow[i]) correct++;
                 }
 
-                const accuracy = (correct / quoteNow.length) * 1000;
-                accuracy.textContent = isNaN(accuracy) ? 0 : Math.round(accuracy);
+                const accuracy = (correct / quoteNow.length) * 100;
+                accuracyDisplay.textContent = isNaN(accuracy)
+                    ? 0
+                    : Math.round(accuracy);
+
+                if (typed === quoteNow) {
+                    input.disabled = true;
+                }
             };
-
-
-            if (typed === quoteNow){
-            input.disable = true;
-            }
         }
-        window.onload = startTyping;
     </script>
 </body>
 
