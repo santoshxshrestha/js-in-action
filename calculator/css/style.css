@@ -5,6 +5,7 @@ body {
     height: 100vh;
     background-color: whitesmoke;
     font-family: sans-serif;
+    color: white;
 }
 
 .calculator {
