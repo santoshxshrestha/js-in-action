@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
 
-export function GET(req: Request) {
+export const GET = async () => {
   return new NextResponse("Terminal API is running");
-}
+};

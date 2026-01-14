@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react";
 export default function Home() {
-    let [command, setCommand] = useState("");
+    const [command, setCommand] = useState("");
 
 
     return (
