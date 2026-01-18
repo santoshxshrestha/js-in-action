@@ -27,9 +27,6 @@ export default function Home() {
     </>
   );
 }
-interface Message {
-    message: string
-};
 
 async function handleSend(pathaune_data: string): Promise<string> {
   try{
