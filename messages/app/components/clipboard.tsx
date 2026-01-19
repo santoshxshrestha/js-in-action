@@ -11,13 +11,14 @@ type ClipBoardProps = {
 export default function ClipBoard({ setData }: ClipBoardProps) {
   return (
     <>
-      <ContentPasteIcon
-        style={{ color: "white", fontSize: 30 }}
+      <button
         onClick={async () => {
           const text = await navigator.clipboard.readText();
           setData(text);
         }}
-      />
+      >
+        <ContentPasteIcon style={{ color: "white", fontSize: 30 }} />
+      </button>
     </>
   );
 }
