@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ClipBoard from "./components/clipboard";
 
 export default function Home() {
@@ -20,7 +20,7 @@ export default function Home() {
               }
             }}
           />
-          <ClipBoard />
+          <ClipBoard setData={setData} />
         </div>
         {message && (
           <div className="mt-4 text-white-800 text-xl border-l-white p-2">
